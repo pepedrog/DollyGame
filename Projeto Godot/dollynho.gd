@@ -22,17 +22,18 @@ func _ready():
 func _physics_process(delta):
 	# Pega o tamanho da tela
 	tamanho_tela = get_viewport_rect().size
-	captura_movimento(delta)
+	captura_movimento()
 	roda_animacao()
 	# Anda o dollynho (atualiza a posição)
-	position += direcao * delta
+	if move_and_collide(direcao * delta) != null:
+		direcao.y = 0
 
 # Função que verifica se alguma tecla de andar foi apertada e atualiza a direção
-func captura_movimento(delta):
+func captura_movimento():
 	#pega a tecla apertada do input
-	var esquerda = Input.is_action_pressed("ui_left") or Input.is_action_pressed("d")
-	var direita = Input.is_action_pressed("ui_right") or Input.is_action_pressed("a")
-	var cima = Input.is_action_pressed("ui_up") or Input.is_action_pressed("w")
+	var esquerda = Input.is_action_pressed("ui_left")
+	var direita = Input.is_action_pressed("ui_right")
+	var cima = Input.is_action_pressed("ui_up")
 	
 	# movimento horizontal
 	if esquerda:
@@ -74,3 +75,7 @@ func roda_animacao():
 	$animacao.flip_h = direcao.x < 0
 	$animacao.play()
 
+
+
+func _on_dollynho_input_event(viewport, event, shape_idx):
+	print(viewport, event, shape_idx)
