@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Carro ligando.wav-65460f3bc206af048967087ec5f1d8ba.sample"
+
+[deps]
+
+source_file="res://sons/Carro ligando.wav"
+dest_files=[ "res://.import/Carro ligando.wav-65460f3bc206af048967087ec5f1d8ba.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

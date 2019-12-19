@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
-# Declare member variables here. Examples:
+signal entrou_no_caminhao
+
+# variaveis do dollynho
 var tamanho_tela
 
 var direcao = Vector2() # vetor bidimensional (x,y) da direção do movimento
@@ -25,8 +27,11 @@ func _physics_process(delta):
 	captura_movimento()
 	roda_animacao()
 	# Anda o dollynho (atualiza a posição)
-	if move_and_collide(direcao * delta) != null:
+	var colisao = move_and_collide(direcao * delta)
+	if colisao:
 		direcao.y = 0
+		if colisao.collider.has_method("liga"):
+			emit_signal("entrou_no_caminhao")
 
 # Função que verifica se alguma tecla de andar foi apertada e atualiza a direção
 func captura_movimento():
@@ -74,8 +79,6 @@ func roda_animacao():
 		$animacao.animation = "parado"
 	$animacao.flip_h = direcao.x < 0
 	$animacao.play()
-
-
 
 func _on_dollynho_input_event(viewport, event, shape_idx):
 	print(viewport, event, shape_idx)
