@@ -11,9 +11,10 @@ var delta_pulo = 20  # quantidade de iterações que dura um pulo
 # Depois de umas continhas chatas descobri que se quiser que a decida e a subida
 # do pulo durem o mesmo tempo, é preciso que (forca_pulo = gravidade * delta_pulo)
 var tempo_pulo = 1 # variavel de controle do pulo (indica a intensidade também) 
+# variáveis para controlar o double jump
 var pulando = false # variavel que indica se está em um pulo
 var pode_pular = true # variavel que indica se pode pular
-var apoiado = false
+var colidindo = false
 
 # Função chamada quando o dollynho é instanciado
 func _ready():
@@ -26,11 +27,12 @@ func _physics_process(delta):
 	captura_movimento()
 	roda_animacao()
 	# Anda o dollynho (atualiza a posição)
-	direcao = move_and_slide(direcao)
-	if direcao.y == 0:
-		apoiado = true
+	var dir_slide = move_and_slide(direcao)
+	# se o vetor mudou depois do movimento
+	if dir_slide != direcao:
+		colidindo = true
 	else:
-		apoiado = false 
+		colidindo = false
 
 # Função que verifica se alguma tecla de andar foi apertada e atualiza a direção
 func captura_movimento():
@@ -61,13 +63,14 @@ func captura_movimento():
 		if tempo_pulo > 0:
 			# A intensidade do pulo varia com o tempo (aceleração)
 			direcao.y = - tempo_pulo * forca_pulo 
-		# se acabou o pulo, reseta
+			# atualiza o tempo do pulo
+			tempo_pulo -= float(1) / delta_pulo
+			# se acabou o pulo, reseta
 		else:
 			tempo_pulo = 1
 			pulando = false
-		# atualiza o tempo do pulo
-		tempo_pulo -= float(1) / delta_pulo
-	else:
+	# Aqui troquei o else, porque quando o pulo acaba é importante ja botar a gravidade
+	if not pulando:
 		direcao.y += gravidade
 
 # Escolhe a animação (sprite) com base na direção do movimento

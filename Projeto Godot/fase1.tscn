@@ -19,22 +19,24 @@ motion_mirroring = Vector2( 1000, 0 )
 position = Vector2( -2.51746, 0 )
 texture = ExtResource( 2 )
 centered = false
-region_rect = Rect2( 0, 0, 1750, 500 )
+offset = Vector2( 0, -200 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1030, 5000 )
 
 [node name="grama" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1156.78, 32.5626 )
 
-[node name="grama5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 590.895, 253.291 )
-
 [node name="grama2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 867.799, 257.585 )
+
+[node name="grama3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 115, 605 )
 
 [node name="grama4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1143.94, 242.398 )
 
-[node name="grama3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 284.707, 251.904 )
+[node name="grama5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 345, 605 )
 
 [node name="dollynho" parent="." instance=ExtResource( 4 )]
 position = Vector2( 100.003, 91.5653 )
