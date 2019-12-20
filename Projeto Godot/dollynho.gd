@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-signal entrou_no_caminhao
-
 # variaveis do dollynho
 var tamanho_tela
 
@@ -15,10 +13,11 @@ var delta_pulo = 20  # quantidade de iterações que dura um pulo
 var tempo_pulo = 1 # variavel de controle do pulo (indica a intensidade também) 
 var pulando = false # variavel que indica se está em um pulo
 var pode_pular = true # variavel que indica se pode pular
+var apoiado = false
 
 # Função chamada quando o dollynho é instanciado
 func _ready():
-	pass
+	$camera.current = true
 
 # Função chamada constantemente, "loop principal" do jogo
 func _physics_process(delta):
@@ -27,11 +26,11 @@ func _physics_process(delta):
 	captura_movimento()
 	roda_animacao()
 	# Anda o dollynho (atualiza a posição)
-	var colisao = move_and_collide(direcao * delta)
-	if colisao:
-		direcao.y = 0
-		if colisao.collider.has_method("liga"):
-			emit_signal("entrou_no_caminhao")
+	direcao = move_and_slide(direcao)
+	if direcao.y == 0:
+		apoiado = true
+	else:
+		apoiado = false 
 
 # Função que verifica se alguma tecla de andar foi apertada e atualiza a direção
 func captura_movimento():
@@ -80,5 +79,8 @@ func roda_animacao():
 	$animacao.flip_h = direcao.x < 0
 	$animacao.play()
 
-func _on_dollynho_input_event(viewport, event, shape_idx):
-	print(viewport, event, shape_idx)
+func limita_camera(esquerda, direita, cima, baixo):
+	$camera.limit_left = esquerda
+	$camera.limit_right = direita
+	$camera.limit_bottom = baixo
+	$camera.limit_top = cima

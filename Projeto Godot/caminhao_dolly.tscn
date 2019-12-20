@@ -1,37 +1,40 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://caminhao_dolly.gd" type="Script" id=1]
-[ext_resource path="res://Imagens/caminhao_dolly.png" type="Texture" id=2]
-[ext_resource path="res://Imagens/caminhao_dolly_3.png" type="Texture" id=3]
-[ext_resource path="res://Imagens/caminhao_dolly_2.png" type="Texture" id=4]
-[ext_resource path="res://Imagens/caminhao_dolly_4.png" type="Texture" id=5]
+[ext_resource path="res://Imagens/caminhao_dolly_3.png" type="Texture" id=2]
+[ext_resource path="res://Imagens/caminhao_dolly_4.png" type="Texture" id=3]
+[ext_resource path="res://Imagens/caminhao_dolly.png" type="Texture" id=4]
+[ext_resource path="res://Imagens/caminhao_dolly_2.png" type="Texture" id=5]
 [ext_resource path="res://sons/Carro ligando.wav" type="AudioStream" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "esquerda_parado",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
 "name": "direita_parado",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "direita_andando",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "esquerda_andando",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "direita_andando",
+"name": "esquerda_parado",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 62.8255, 36.3149 )
+extents = Vector2( 59, 34 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 66, 42 )
 
 [node name="caminhao_dolly" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -45,3 +48,12 @@ shape = SubResource( 2 )
 
 [node name="som_carro_ligando" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+
+[node name="deteccao_dollynho" type="Area2D" parent="."]
+
+[node name="colisao2" type="CollisionShape2D" parent="deteccao_dollynho"]
+shape = SubResource( 3 )
+
+[node name="camera" type="Camera2D" parent="."]
+[connection signal="finished" from="som_carro_ligando" to="." method="_on_som_carro_ligando_finished"]
+[connection signal="body_entered" from="deteccao_dollynho" to="." method="_on_deteccao_dollynho_body_entered"]

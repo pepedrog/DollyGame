@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+signal entrou_no_caminhao
 signal saiu_do_caminhao
 
 # Variáveis do caminhão
@@ -22,7 +23,7 @@ func _physics_process(delta):
 			$animacao.animation = "direita_andando"
 		elif !re:
 			$animacao.animation = "esquerda_andando"
-		move_and_collide(direcao * delta)
+		move_and_slide(direcao)
 		
 func captura_movimento():
 	direcao = Vector2()
@@ -30,6 +31,7 @@ func captura_movimento():
 	var direita = Input.is_action_pressed("ui_right")
 	var cima = Input.is_action_pressed("ui_up")
 	var baixo = Input.is_action_pressed("ui_down")
+	var saiu = Input.is_action_pressed("ui_quit")
 	if esquerda:
 		lado = -1
 		direcao.x = - velocidade
@@ -40,21 +42,29 @@ func captura_movimento():
 		direcao.y = - velocidade_vertical
 	elif baixo:
 		direcao.y = velocidade_vertical
+	if saiu:
+		emit_signal("saiu_do_caminhao")
 
 func liga(dir, re_p):
 	$som_carro_ligando.play()
-	ligado = true
+	$camera.current = true
 	re = re_p
 	if dir.casecmp_to("direita"):
 		$animacao.animation = "esquerda_andando"
 	else:
 		$animacao.animation = "direita_andando"
-	$animacao.play()
 
 func desliga(dir):
 	ligado = false
-	if dir == 1:
-		$animacao.animation = "direita_parado"
-	else:
+	if dir.casecmp_to("direita"):
 		$animacao.animation = "esquerda_parado"
+	else:
+		$animacao.animation = "direita_parado"
 
+func _on_som_carro_ligando_finished():
+	ligado = true
+	$animacao.play()
+
+func _on_deteccao_dollynho_body_entered(body):
+	if body.is_in_group("player"):
+		emit_signal("entrou_no_caminhao")
