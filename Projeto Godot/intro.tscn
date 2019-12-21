@@ -1,0 +1,168 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://intro.gd" type="Script" id=1]
+[ext_resource path="res://Imagens/fundo3.jpg" type="Texture" id=2]
+[ext_resource path="res://Imagens/logo1.png" type="Texture" id=3]
+[ext_resource path="res://Imagens/logo2.png" type="Texture" id=4]
+[ext_resource path="res://Imagens/logo3.png" type="Texture" id=5]
+[ext_resource path="res://Imagens/logo_godot.jpg" type="Texture" id=6]
+[ext_resource path="res://Imagens/logo_paint.png" type="Texture" id=7]
+[ext_resource path="res://Imagens/rua_2.png" type="Texture" id=8]
+[ext_resource path="res://Imagens/historia_1.png" type="Texture" id=9]
+[ext_resource path="res://Imagens/portao_fase1_1.png" type="Texture" id=10]
+[ext_resource path="res://Imagens/portao_fase1_2.png" type="Texture" id=11]
+[ext_resource path="res://Imagens/portao_fase1_3.png" type="Texture" id=12]
+[ext_resource path="res://Imagens/portao_fase1_4.png" type="Texture" id=13]
+[ext_resource path="res://Imagens/portao_fase1_5.png" type="Texture" id=14]
+[ext_resource path="res://Imagens/portao_fase1_6.png" type="Texture" id=15]
+[ext_resource path="res://Imagens/portao_fase1_7.png" type="Texture" id=16]
+[ext_resource path="res://dollynho.tscn" type="PackedScene" id=17]
+[ext_resource path="res://caminhao_dolly.tscn" type="PackedScene" id=18]
+[ext_resource path="res://sons/papai_dolly_1.wav" type="AudioStream" id=19]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 100, 50 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "fechado",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": false,
+"name": "abrindo",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "fechando",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 500 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 50000, 5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 50000, 5 )
+
+[node name="intro" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="fundo" type="ParallaxBackground" parent="."]
+
+[node name="ceu" type="ParallaxLayer" parent="fundo"]
+editor/display_folded = true
+motion_scale = Vector2( 0.3, 0.5 )
+motion_mirroring = Vector2( 1922, 0 )
+
+[node name="Sprite" type="Sprite" parent="fundo/ceu"]
+position = Vector2( -2.51746, -159.789 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( 0, -200 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1922, 5000 )
+
+[node name="logos" type="ParallaxLayer" parent="fundo"]
+editor/display_folded = true
+motion_scale = Vector2( 0.5, 1 )
+
+[node name="dolly" type="Sprite" parent="fundo/logos"]
+position = Vector2( 1889.23, 378.956 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="a firma" type="Sprite" parent="fundo/logos"]
+position = Vector2( 1417.87, 378.955 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="teclas" type="Sprite" parent="fundo/logos"]
+position = Vector2( 315.457, 384.256 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 5 )
+
+[node name="godot" type="Sprite" parent="fundo/logos"]
+position = Vector2( 728.863, 384.256 )
+texture = ExtResource( 6 )
+
+[node name="paint" type="Sprite" parent="fundo/logos"]
+position = Vector2( 1129.02, 381.606 )
+texture = ExtResource( 7 )
+
+[node name="rua" type="ParallaxLayer" parent="fundo"]
+editor/display_folded = true
+motion_mirroring = Vector2( 2498, 0 )
+
+[node name="rua1" type="Sprite" parent="fundo/rua"]
+position = Vector2( 0, 590 )
+scale = Vector2( 1, 1.5 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="portao1" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 7819.07, 527.053 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portao1"]
+position = Vector2( -1312.83, 79.115 )
+shape = SubResource( 4 )
+
+[node name="historia1" type="Sprite" parent="portao1"]
+position = Vector2( -2006.57, -141.87 )
+texture = ExtResource( 9 )
+
+[node name="animacao" type="AnimatedSprite" parent="portao1"]
+position = Vector2( -1323.6, -113 )
+scale = Vector2( 0.7, 0.7 )
+frames = SubResource( 5 )
+animation = "fechado"
+
+[node name="dollynho" parent="." instance=ExtResource( 17 )]
+position = Vector2( 107.784, 594.136 )
+
+[node name="caminhao_dolly" parent="." instance=ExtResource( 18 )]
+position = Vector2( 405.824, 654.158 )
+
+[node name="musica" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="limites" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="limite_rua_lateral" type="StaticBody2D" parent="limites"]
+editor/display_folded = true
+position = Vector2( 4591.01, 747.012 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limites/limite_rua_lateral"]
+position = Vector2( -4575.16, -356.012 )
+shape = SubResource( 1 )
+
+[node name="limite_rua2" type="StaticBody2D" parent="limites"]
+editor/display_folded = true
+position = Vector2( 4591.01, 747.012 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limites/limite_rua2"]
+position = Vector2( 7.782, -200 )
+shape = SubResource( 2 )
+
+[node name="limite_rua1" type="StaticBody2D" parent="limites"]
+editor/display_folded = true
+position = Vector2( 4550, 735 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limites/limite_rua1"]
+shape = SubResource( 3 )
+[connection signal="body_entered" from="portao1" to="." method="_on_portao1_area_entered"]
+[connection signal="body_exited" from="portao1" to="." method="_on_portao1_area_exited"]
+[connection signal="entrou_no_caminhao" from="caminhao_dolly" to="." method="_on_caminhao_dolly_entrou_no_caminhao"]
+[connection signal="saiu_do_caminhao" from="caminhao_dolly" to="." method="_on_caminhao_dolly_saiu_do_caminhao"]
+[connection signal="finished" from="musica" to="." method="_on_musica_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

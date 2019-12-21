@@ -3,45 +3,56 @@
 [ext_resource path="res://fase1.gd" type="Script" id=1]
 [ext_resource path="res://Imagens/fundo3.jpg" type="Texture" id=2]
 [ext_resource path="res://grama.tscn" type="PackedScene" id=3]
-[ext_resource path="res://dollynho.tscn" type="PackedScene" id=4]
-[ext_resource path="res://caminhao_dolly.tscn" type="PackedScene" id=5]
+[ext_resource path="res://parede_terra.tscn" type="PackedScene" id=4]
+[ext_resource path="res://dollynho.tscn" type="PackedScene" id=5]
 
-[node name="fase 1" type="Node2D"]
+[node name="fase1" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_base_scale = Vector2( 0.5, 0.5 )
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 1000, 0 )
+[node name="ceu" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.5 )
+motion_mirroring = Vector2( 1922, 0 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( -2.51746, 0 )
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ceu"]
+position = Vector2( 2.65002, -691.659 )
 texture = ExtResource( 2 )
 centered = false
-offset = Vector2( 0, -200 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 1030, 5000 )
+region_rect = Rect2( 0, 0, 1922, 7000 )
 
-[node name="grama" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1156.78, 32.5626 )
+[node name="gramas" type="Node2D" parent="."]
+editor/display_folded = true
 
-[node name="grama2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 867.799, 257.585 )
+[node name="grama" parent="gramas" instance=ExtResource( 3 )]
+position = Vector2( 202, -30 )
 
-[node name="grama3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 115, 605 )
+[node name="grama2" parent="gramas" instance=ExtResource( 3 )]
+position = Vector2( 505, -30 )
 
-[node name="grama4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1143.94, 242.398 )
+[node name="grama3" parent="gramas" instance=ExtResource( 3 )]
+position = Vector2( 909, -30 )
 
-[node name="grama5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 345, 605 )
+[node name="grama4" parent="gramas" instance=ExtResource( 3 )]
+position = Vector2( 1313, -30 )
 
-[node name="dollynho" parent="." instance=ExtResource( 4 )]
-position = Vector2( 100.003, 91.5653 )
+[node name="grama5" parent="gramas" instance=ExtResource( 3 )]
+position = Vector2( 1717, -30 )
 
-[node name="caminhao_dolly" parent="." instance=ExtResource( 5 )]
-position = Vector2( 871.417, 133.684 )
-[connection signal="entrou_no_caminhao" from="caminhao_dolly" to="." method="_on_caminhao_dolly_entrou_no_caminhao"]
-[connection signal="saiu_do_caminhao" from="caminhao_dolly" to="." method="_on_caminhao_dolly_saiu_do_caminhao"]
+[node name="paredes" type="Node2D" parent="."]
+
+[node name="parede_terra" parent="paredes" instance=ExtResource( 4 )]
+position = Vector2( 18.4549, -123.033 )
+
+[node name="parede_terra2" parent="paredes" instance=ExtResource( 4 )]
+position = Vector2( 18.4549, -289.127 )
+
+[node name="parede_terra3" parent="paredes" instance=ExtResource( 4 )]
+position = Vector2( 180.448, -215.307 )
+
+[node name="parede_terra4" parent="paredes" instance=ExtResource( 4 )]
+position = Vector2( 180.448, -424.463 )
+
+[node name="dollynho" parent="." instance=ExtResource( 5 )]
+position = Vector2( 322.992, -99.0094 )

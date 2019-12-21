@@ -24,7 +24,8 @@ func _physics_process(delta):
 		elif !re:
 			$animacao.animation = "esquerda_andando"
 		move_and_slide(direcao)
-		
+
+# Função que interpreta os comando do input
 func captura_movimento():
 	direcao = Vector2()
 	var esquerda = Input.is_action_pressed("ui_left")
@@ -32,6 +33,7 @@ func captura_movimento():
 	var cima = Input.is_action_pressed("ui_up")
 	var baixo = Input.is_action_pressed("ui_down")
 	var saiu = Input.is_action_pressed("ui_quit")
+	var buzina = Input.is_action_just_pressed("ui_accept")
 	if esquerda:
 		lado = -1
 		direcao.x = - velocidade
@@ -44,6 +46,8 @@ func captura_movimento():
 		direcao.y = velocidade_vertical
 	if saiu:
 		emit_signal("saiu_do_caminhao")
+	if buzina:
+		$buzina.play()
 
 func liga(dir, re_p):
 	$som_carro_ligando.play()
@@ -68,3 +72,10 @@ func _on_som_carro_ligando_finished():
 func _on_deteccao_dollynho_body_entered(body):
 	if body.is_in_group("player"):
 		emit_signal("entrou_no_caminhao")
+
+func limita_camera(esquerda, direita, cima, baixo):
+	$camera.limit_left = esquerda
+	$camera.limit_right = direita
+	$camera.limit_bottom = baixo
+	$camera.limit_top = cima
+

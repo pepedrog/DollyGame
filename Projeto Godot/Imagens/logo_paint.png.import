@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/8 bit exemplo.jpg-03d73bbb1aa0e90fc16cbf4cc2b89d90.stex"
+path="res://.import/logo_paint.png-2c19d11f4f71a8983548f8c85952c412.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagens/8 bit exemplo.jpg"
-dest_files=[ "res://.import/8 bit exemplo.jpg-03d73bbb1aa0e90fc16cbf4cc2b89d90.stex" ]
+source_file="res://Imagens/logo_paint.png"
+dest_files=[ "res://.import/logo_paint.png-2c19d11f4f71a8983548f8c85952c412.stex" ]
 
 [params]
 

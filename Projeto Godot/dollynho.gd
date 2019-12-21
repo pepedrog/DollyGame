@@ -12,9 +12,11 @@ var delta_pulo = 20  # quantidade de iterações que dura um pulo
 # do pulo durem o mesmo tempo, é preciso que (forca_pulo = gravidade * delta_pulo)
 var tempo_pulo = 1 # variavel de controle do pulo (indica a intensidade também) 
 # variáveis para controlar o double jump
-var pulando = false # variavel que indica se está em um pulo
+var pulando = 0 # variavel que indica se está em um pulo: 0 = não, > 0 = pulo pra direita, < 0 = esquerda
 var pode_pular = true # variavel que indica se pode pular
-var colidindo = false
+var parede_dir = false
+var parede_esq = false
+var apoiado = false
 
 # Função chamada quando o dollynho é instanciado
 func _ready():
@@ -29,10 +31,10 @@ func _physics_process(delta):
 	# Anda o dollynho (atualiza a posição)
 	var dir_slide = move_and_slide(direcao)
 	# se o vetor mudou depois do movimento
-	if dir_slide != direcao:
-		colidindo = true
-	else:
-		colidindo = false
+	apoiado = dir_slide.y < direcao.y
+	parede_dir = dir_slide.x < direcao.x
+	parede_esq = dir_slide.x > direcao.x
+	direcao = dir_slide
 
 # Função que verifica se alguma tecla de andar foi apertada e atualiza a direção
 func captura_movimento():
@@ -40,7 +42,7 @@ func captura_movimento():
 	var esquerda = Input.is_action_pressed("ui_left")
 	var direita = Input.is_action_pressed("ui_right")
 	var cima = Input.is_action_pressed("ui_up")
-	
+	var baixo = Input.is_action_pressed("ui_down")
 	# movimento horizontal
 	if esquerda:
 		direcao.x = - velocidade
@@ -50,7 +52,10 @@ func captura_movimento():
 		direcao.x = 0
 	
 	# possível pulo
+	# wall_jump
 	var novo_pulo = false
+	if cima and (direita and parede_esq) or (esquerda and parede_dir):
+		pode_pular = true
 	if cima and pode_pular:
 		pulando = true
 		novo_pulo = true
@@ -72,7 +77,15 @@ func captura_movimento():
 	# Aqui troquei o else, porque quando o pulo acaba é importante ja botar a gravidade
 	if not pulando:
 		direcao.y += gravidade
-
+	
+	# Para regioes especiais
+	if gravidade == 0:
+		if baixo:
+			direcao.y = forca_pulo
+		elif cima:
+			direcao.y = - forca_pulo
+		else:
+			direcao.y = 0
 # Escolhe a animação (sprite) com base na direção do movimento
 func roda_animacao():
 	if direcao.x != 0:
