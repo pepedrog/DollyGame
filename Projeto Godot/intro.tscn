@@ -10,44 +10,44 @@
 [ext_resource path="res://Imagens/rua_2.png" type="Texture" id=8]
 [ext_resource path="res://Imagens/historia_1.png" type="Texture" id=9]
 [ext_resource path="res://Imagens/portao_fase1_1.png" type="Texture" id=10]
-[ext_resource path="res://Imagens/portao_fase1_2.png" type="Texture" id=11]
-[ext_resource path="res://Imagens/portao_fase1_3.png" type="Texture" id=12]
-[ext_resource path="res://Imagens/portao_fase1_4.png" type="Texture" id=13]
-[ext_resource path="res://Imagens/portao_fase1_5.png" type="Texture" id=14]
-[ext_resource path="res://Imagens/portao_fase1_6.png" type="Texture" id=15]
-[ext_resource path="res://Imagens/portao_fase1_7.png" type="Texture" id=16]
+[ext_resource path="res://Imagens/portao_fase1_7.png" type="Texture" id=11]
+[ext_resource path="res://Imagens/portao_fase1_6.png" type="Texture" id=12]
+[ext_resource path="res://Imagens/portao_fase1_5.png" type="Texture" id=13]
+[ext_resource path="res://Imagens/portao_fase1_4.png" type="Texture" id=14]
+[ext_resource path="res://Imagens/portao_fase1_3.png" type="Texture" id=15]
+[ext_resource path="res://Imagens/portao_fase1_2.png" type="Texture" id=16]
 [ext_resource path="res://dollynho.tscn" type="PackedScene" id=17]
 [ext_resource path="res://caminhao_dolly.tscn" type="PackedScene" id=18]
 [ext_resource path="res://sons/papai_dolly_1.wav" type="AudioStream" id=19]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 50 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "fechado",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
-"loop": false,
-"name": "abrindo",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 10 ) ],
 "loop": false,
 "name": "fechando",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "abrindo",
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 500 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 50000, 5 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 50000, 5 )
 
 [node name="intro" type="Node2D"]
@@ -111,7 +111,7 @@ position = Vector2( 7819.07, 527.053 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="portao1"]
 position = Vector2( -1312.83, 79.115 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="historia1" type="Sprite" parent="portao1"]
 position = Vector2( -2006.57, -141.87 )
@@ -120,7 +120,7 @@ texture = ExtResource( 9 )
 [node name="animacao" type="AnimatedSprite" parent="portao1"]
 position = Vector2( -1323.6, -113 )
 scale = Vector2( 0.7, 0.7 )
-frames = SubResource( 5 )
+frames = SubResource( 2 )
 animation = "fechado"
 
 [node name="dollynho" parent="." instance=ExtResource( 17 )]
@@ -144,7 +144,7 @@ position = Vector2( 4591.01, 747.012 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="limites/limite_rua_lateral"]
 position = Vector2( -4575.16, -356.012 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="limite_rua2" type="StaticBody2D" parent="limites"]
 editor/display_folded = true
@@ -152,14 +152,14 @@ position = Vector2( 4591.01, 747.012 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="limites/limite_rua2"]
 position = Vector2( 7.782, -200 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="limite_rua1" type="StaticBody2D" parent="limites"]
 editor/display_folded = true
 position = Vector2( 4550, 735 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="limites/limite_rua1"]
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 [connection signal="body_entered" from="portao1" to="." method="_on_portao1_area_entered"]
 [connection signal="body_exited" from="portao1" to="." method="_on_portao1_area_exited"]
 [connection signal="entrou_no_caminhao" from="caminhao_dolly" to="." method="_on_caminhao_dolly_entrou_no_caminhao"]

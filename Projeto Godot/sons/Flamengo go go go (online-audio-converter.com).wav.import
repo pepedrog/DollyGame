@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Flamengo go go go (online-audio-converter.com).wav-a722cd28e742fe2b56334f9f7eab0012.sample"
+
+[deps]
+
+source_file="res://sons/Flamengo go go go (online-audio-converter.com).wav"
+dest_files=[ "res://.import/Flamengo go go go (online-audio-converter.com).wav-a722cd28e742fe2b56334f9f7eab0012.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,12 +1,17 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var guaranas_coletados = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$dollynho.limita_camera(0, 100000, -10000, 0)
+	$musica.play()
+	$dollynho.limita_camera(0, 100000, -1000, 0)
+	$gramas/grama8.set_physics_process(false)
 
-func _process(delta):
-	$dollynho.pode_pular = $dollynho.apoiado or ($dollynho.parede_dir and $dollynho.direcao.x < 0) or ($dollynho.parede_esq and $dollynho.direcao.x > 0)
+func _on_guarana_body_entered(body):
+	remove_child($guarana)
+	guaranas_coletados += 1
+
+func _on_gol_body_entered(body):
+	$flamengo.play()
+	$gramas/grama8.set_physics_process(true)
