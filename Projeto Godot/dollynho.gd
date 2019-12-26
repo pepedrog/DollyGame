@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-# variaveis do dollynho
-var tamanho_tela
+signal morri
 
+# variaveis do dollynho
 var direcao = Vector2() # vetor bidimensional (x,y) da direção do movimento
 var velocidade = 200 # velocidade do movimento horizontal
 var gravidade = 10 # aceleração da gravidade
@@ -17,6 +17,7 @@ var pode_pular = true # variavel que indica se pode pular
 var procurando_parede_dir = false
 var procurando_parede_esq = false
 var apoiado = false
+var morto = false
 
 # Função chamada quando o dollynho é instanciado
 func _ready():
@@ -25,16 +26,16 @@ func _ready():
 # Função chamada constantemente, "loop principal" do jogo
 func _physics_process(delta):
 	# Pega o tamanho da tela
-	tamanho_tela = get_viewport_rect().size
-	captura_movimento()
-	roda_animacao()
-	# Anda o dollynho (atualiza a posição)
-	var dir_slide = move_and_slide(direcao)
-	# se o vetor mudou depois do movimento
-	apoiado = dir_slide.y < direcao.y
-	# se eu estou apoiado ou encontrei a parede que eu procurava
-	pode_pular = apoiado or (procurando_parede_dir and dir_slide.x < direcao.x) or (procurando_parede_esq and dir_slide.x > direcao.x)
-	direcao = dir_slide
+	if not morto:
+		captura_movimento()
+		roda_animacao()
+		# Anda o dollynho (atualiza a posição)
+		var dir_slide = move_and_slide(direcao)
+		# se o vetor mudou depois do movimento
+		apoiado = dir_slide.y < direcao.y
+		# se eu estou apoiado ou encontrei a parede que eu procurava
+		pode_pular = apoiado or (procurando_parede_dir and dir_slide.x < direcao.x) or (procurando_parede_esq and dir_slide.x > direcao.x)
+		direcao = dir_slide
 
 # Função que verifica se alguma tecla de andar foi apertada e atualiza a direção
 func captura_movimento():
@@ -109,3 +110,12 @@ func limita_camera(esquerda, direita, cima, baixo):
 	$camera.limit_right = direita
 	$camera.limit_bottom = baixo
 	$camera.limit_top = cima
+
+func morre():
+	if not morto:
+		$morri.play()
+		$animacao.animation = "morrendo"
+		morto = true
+
+func _on_morri_finished():
+	emit_signal("morri")

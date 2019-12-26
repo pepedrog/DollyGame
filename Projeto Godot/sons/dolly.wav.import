@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dolly.wav-bc90f03ff911fc5198204d421592fb0d.sample"
+
+[deps]
+
+source_file="res://sons/dolly.wav"
+dest_files=[ "res://.import/dolly.wav-bc90f03ff911fc5198204d421592fb0d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

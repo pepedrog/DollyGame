@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://dollynho.gd" type="Script" id=1]
 [ext_resource path="res://Imagens/dollynho_direita.png" type="Texture" id=2]
 [ext_resource path="res://Imagens/dollynho_direita2.png" type="Texture" id=3]
 [ext_resource path="res://Imagens/dollynho_parado.png" type="Texture" id=4]
+[ext_resource path="res://Imagens/dollynho_morrendo1.png" type="Texture" id=5]
+[ext_resource path="res://Imagens/dollynho_morrendo2.png" type="Texture" id=6]
+[ext_resource path="res://Imagens/dollynho_morrendo3.png" type="Texture" id=7]
+[ext_resource path="res://sons/morri.wav" type="AudioStream" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -16,6 +20,11 @@ animations = [ {
 "loop": true,
 "name": "parado",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "morrendo",
+"speed": 3.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -36,4 +45,8 @@ shape = SubResource( 2 )
 [node name="camera" type="Camera2D" parent="."]
 limit_smoothed = true
 smoothing_enabled = true
+
+[node name="morri" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 [connection signal="input_event" from="." to="." method="_on_dollynho_input_event"]
+[connection signal="finished" from="morri" to="." method="_on_morri_finished"]

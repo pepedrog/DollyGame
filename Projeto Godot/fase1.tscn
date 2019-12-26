@@ -1,48 +1,85 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://fase1.gd" type="Script" id=1]
 [ext_resource path="res://Imagens/fundo3.jpg" type="Texture" id=2]
 [ext_resource path="res://guarana.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Imagens/seta.png" type="Texture" id=4]
-[ext_resource path="res://grama.tscn" type="PackedScene" id=5]
-[ext_resource path="res://grama.gd" type="Script" id=6]
-[ext_resource path="res://parede_terra.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Imagens/dolly_guarana_escrito.png" type="Texture" id=8]
-[ext_resource path="res://dollynho.tscn" type="PackedScene" id=9]
-[ext_resource path="res://gol.tscn" type="PackedScene" id=10]
-[ext_resource path="res://bola.tscn" type="PackedScene" id=11]
-[ext_resource path="res://sons/Flamengo go go go (online-audio-converter.com).wav" type="AudioStream" id=12]
-[ext_resource path="res://sons/dolly_guarana.wav" type="AudioStream" id=13]
+[ext_resource path="res://peixe.tscn" type="PackedScene" id=5]
+[ext_resource path="res://agua.tscn" type="PackedScene" id=6]
+[ext_resource path="res://grama.tscn" type="PackedScene" id=7]
+[ext_resource path="res://grama.gd" type="Script" id=8]
+[ext_resource path="res://parede_terra.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Imagens/dolly_guarana_escrito.png" type="Texture" id=10]
+[ext_resource path="res://dollynho.tscn" type="PackedScene" id=11]
+[ext_resource path="res://gol.tscn" type="PackedScene" id=12]
+[ext_resource path="res://bola.tscn" type="PackedScene" id=13]
+[ext_resource path="res://sons/Flamengo go go go (online-audio-converter.com).wav" type="AudioStream" id=14]
+[ext_resource path="res://sons/dolly_guarana.wav" type="AudioStream" id=15]
+[ext_resource path="res://porco_espinho.tscn" type="PackedScene" id=16]
+[ext_resource path="res://urso.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Imagens/arvore_urso.png" type="Texture" id=18]
 
-[sub_resource type="PhysicsMaterial" id=1]
+[sub_resource type="SegmentShape2D" id=1]
+a = Vector2( -75.927, -84.2489 )
+b = Vector2( -112.103, 9.20613 )
+
+[sub_resource type="PhysicsMaterial" id=2]
 friction = 50.0
 bounce = 50.0
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 50000, 10 )
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 5.41162, 49.4138 )
+
+[sub_resource type="SegmentShape2D" id=5]
+a = Vector2( -31.7732, -85.522 )
+b = Vector2( -29.2556, 7.62653 )
+
+[sub_resource type="SegmentShape2D" id=6]
+a = Vector2( 1109.46, -360.001 )
+b = Vector2( 732.874, -360.001 )
+
 [node name="fase1" type="Node2D"]
+position = Vector2( 0, 2 )
 script = ExtResource( 1 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 
 [node name="ceu" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.3, 0.5 )
 motion_mirroring = Vector2( 1922, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ceu"]
-position = Vector2( 2.65002, -691.659 )
+position = Vector2( 2.65002, -693.329 )
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1922, 7000 )
 
 [node name="guarana" parent="." instance=ExtResource( 3 )]
-position = Vector2( 175.078, -945.189 )
+position = Vector2( 139.833, -945.189 )
+
+[node name="guarana2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 539.12, -495.104 )
+
+[node name="guarana3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1819.02, -295.667 )
+
+[node name="guarana4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2005.32, -121.957 )
+
+[node name="guarana5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 3314.44, -162.238 )
+
+[node name="guarana6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 4462.43, -84.1943 )
 
 [node name="setas" type="Node2D" parent="."]
 editor/display_folded = true
-position = Vector2( 0, -10 )
+position = Vector2( 0, -30 )
 
 [node name="seta" type="Sprite" parent="setas"]
 position = Vector2( 620, -90 )
@@ -71,128 +108,254 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 4 )
 flip_h = true
 
-[node name="gramas" type="Node2D" parent="."]
+[node name="peixe" parent="." instance=ExtResource( 5 )]
 editor/display_folded = true
+position = Vector2( 2013.8, 21.1025 )
 
-[node name="grama" parent="gramas" instance=ExtResource( 5 )]
+[node name="Area2D" type="Area2D" parent="peixe"]
+position = Vector2( 3.01477, 16.5807 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="peixe/Area2D"]
+position = Vector2( 54.2642, -104.006 )
+shape = SubResource( 1 )
+
+[node name="agua" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2026.13, -20.6928 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="gramas" type="Node2D" parent="."]
+
+[node name="grama" parent="gramas" instance=ExtResource( 7 )]
 position = Vector2( 202, -30 )
 
-[node name="grama2" parent="gramas" instance=ExtResource( 5 )]
+[node name="grama2" parent="gramas" instance=ExtResource( 7 )]
 position = Vector2( 505, -30 )
 
-[node name="grama3" parent="gramas" instance=ExtResource( 5 )]
+[node name="grama3" parent="gramas" instance=ExtResource( 7 )]
 position = Vector2( 909, -30 )
 
-[node name="grama4" parent="gramas" instance=ExtResource( 5 )]
+[node name="grama4" parent="gramas" instance=ExtResource( 7 )]
 position = Vector2( 1313, -30 )
 
-[node name="grama5" parent="gramas" instance=ExtResource( 5 )]
-position = Vector2( 1717, -30 )
+[node name="grama5" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 1715.49, -30 )
 
-[node name="grama7" parent="gramas" instance=ExtResource( 5 )]
-position = Vector2( 1735.54, -353.683 )
+[node name="grama11" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 2298.83, -30 )
+
+[node name="grama12" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 2702.8, -30 )
+
+[node name="grama13" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 3106.23, -30 )
+
+[node name="grama14" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 3509.67, -30 )
+
+[node name="grama16" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 3907.55, -30 )
+
+[node name="grama19" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 4308.87, -30 )
+
+[node name="grama20" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 4712.16, -30 )
+
+[node name="grama7" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 1730.54, -353 )
 scale = Vector2( 1, 0.5 )
 
-[node name="grama9" parent="gramas" instance=ExtResource( 5 )]
+[node name="grama9" parent="gramas" instance=ExtResource( 7 )]
 position = Vector2( 1856.38, -255.499 )
 scale = Vector2( 1, 0.5 )
 
-[node name="grama8" parent="gramas" instance=ExtResource( 5 )]
-position = Vector2( 1365.41, -354.764 )
-scale = Vector2( 1, 0.5 )
-script = ExtResource( 6 )
+[node name="grama17" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 2797.53, -120 )
+scale = Vector2( 0.5, 0.5 )
 
-[node name="grama6" parent="gramas" instance=ExtResource( 5 )]
-position = Vector2( 175.078, -889.804 )
+[node name="grama18" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 3315.48, -120 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="grama15" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 3801.89, -120 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="grama21" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 4274.61, -120 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="grama8" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 1330, -353 )
+scale = Vector2( 1, 0.5 )
+script = ExtResource( 8 )
+
+[node name="grama10" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 720.72, -189.416 )
+rotation = 1.22173
+scale = Vector2( 0.4, 0.5 )
+
+[node name="grama6" parent="gramas" instance=ExtResource( 7 )]
+position = Vector2( 134.323, -887.621 )
 scale = Vector2( 0.3, 0.5 )
-physics_material_override = SubResource( 1 )
+physics_material_override = SubResource( 2 )
 
 [node name="paredes1" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="parede_terra" parent="paredes1" instance=ExtResource( 7 )]
+[node name="parede_terra" parent="paredes1" instance=ExtResource( 9 )]
 position = Vector2( 20, -123.033 )
 
-[node name="parede_terra2" parent="paredes1" instance=ExtResource( 7 )]
+[node name="parede_terra2" parent="paredes1" instance=ExtResource( 9 )]
 position = Vector2( 20, -289.127 )
 
-[node name="parede_terra3" parent="paredes1" instance=ExtResource( 7 )]
+[node name="parede_terra3" parent="paredes1" instance=ExtResource( 9 )]
 position = Vector2( 20, -630.66 )
 
-[node name="parede_terra4" parent="paredes1" instance=ExtResource( 7 )]
+[node name="parede_terra4" parent="paredes1" instance=ExtResource( 9 )]
 position = Vector2( 20, -459.322 )
 
-[node name="parede_terra5" parent="paredes1" instance=ExtResource( 7 )]
+[node name="parede_terra5" parent="paredes1" instance=ExtResource( 9 )]
 position = Vector2( 20, -801 )
 
-[node name="parede_terra6" parent="paredes1" instance=ExtResource( 7 )]
+[node name="parede_terra6" parent="paredes1" instance=ExtResource( 9 )]
 position = Vector2( 20, -928 )
 
 [node name="limite_ceu" type="StaticBody2D" parent="paredes1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="paredes1/limite_ceu"]
 position = Vector2( 49998, -1005.12 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="paredes2" type="Node2D" parent="."]
 editor/display_folded = true
 position = Vector2( 672.758, -2.65002 )
 
-[node name="parede_terra" parent="paredes2" instance=ExtResource( 7 )]
+[node name="parede_terra" parent="paredes2" instance=ExtResource( 9 )]
 position = Vector2( 20, -123.033 )
 
-[node name="parede_terra2" parent="paredes2" instance=ExtResource( 7 )]
+[node name="parede_terra2" parent="paredes2" instance=ExtResource( 9 )]
 position = Vector2( 20, -289.127 )
 
-[node name="parede_terra3" parent="paredes2" instance=ExtResource( 7 )]
+[node name="parede_terra3" parent="paredes2" instance=ExtResource( 9 )]
 position = Vector2( -135, -211.955 )
 
-[node name="parede_terra5" parent="paredes2" instance=ExtResource( 7 )]
+[node name="parede_terra5" parent="paredes2" instance=ExtResource( 9 )]
 position = Vector2( -135, -381.645 )
 
+[node name="mata_urso" parent="." instance=ExtResource( 9 )]
+editor/display_folded = true
+position = Vector2( 4530.14, -102.251 )
+scale = Vector2( 1, 1.5 )
+
+[node name="Area2D" type="Area2D" parent="mata_urso"]
+position = Vector2( 0, 1.67834 )
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mata_urso/Area2D"]
+position = Vector2( 0, 10.0701 )
+shape = SubResource( 4 )
+
 [node name="paredes3" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 1208.89, -61.1064 )
 
-[node name="parede_terra" parent="paredes3" instance=ExtResource( 7 )]
+[node name="parede_terra" parent="paredes3" instance=ExtResource( 9 )]
 position = Vector2( 388.099, -68.5976 )
 rotation = -3.49066
 
-[node name="parede_terra3" parent="paredes3" instance=ExtResource( 7 )]
+[node name="parede_terra3" parent="paredes3" instance=ExtResource( 9 )]
 position = Vector2( 372.408, -111.342 )
 rotation = -3.49066
 
-[node name="parede_terra5" parent="paredes3" instance=ExtResource( 7 )]
+[node name="parede_terra5" parent="paredes3" instance=ExtResource( 9 )]
 position = Vector2( 794.871, -390.306 )
 rotation = -0.872665
 
-[node name="parede_terra2" parent="paredes3" instance=ExtResource( 7 )]
+[node name="parede_terra2" parent="paredes3" instance=ExtResource( 9 )]
 position = Vector2( 340.675, -197.267 )
 
-[node name="parede_terra4" parent="paredes3" instance=ExtResource( 7 )]
+[node name="parede_terra4" parent="paredes3" instance=ExtResource( 9 )]
 position = Vector2( 856.769, -265.24 )
 
 [node name="dolly_guarana" type="Sprite" parent="."]
 position = Vector2( 292.034, -219.025 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
-[node name="dollynho" parent="." instance=ExtResource( 9 )]
-position = Vector2( 322.992, -99.0094 )
+[node name="dollynho" parent="." instance=ExtResource( 11 )]
+position = Vector2( 92.5721, -79.6723 )
+collision_layer = 7
+collision_mask = 7
 
-[node name="gol" parent="." instance=ExtResource( 10 )]
+[node name="gol" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1565.48, -115.105 )
 scale = Vector2( 1, 1.7 )
 collision_layer = 16
 collision_mask = 16
 
-[node name="bola" parent="." instance=ExtResource( 11 )]
-position = Vector2( 787.412, -106.851 )
+[node name="bola" parent="." instance=ExtResource( 13 )]
+position = Vector2( 845, -140 )
 collision_layer = 17
 collision_mask = 17
 
 [node name="flamengo" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
+stream = ExtResource( 14 )
 
 [node name="musica" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 13 )
+stream = ExtResource( 15 )
+
+[node name="porco_espinho" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1758.04, -386.68 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="urso" parent="." instance=ExtResource( 17 )]
+position = Vector2( 2345, -100 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 2332.52, -112.736 )
+texture = ExtResource( 18 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 2386.19, -112.736 )
+texture = ExtResource( 18 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 2360.28, -112.736 )
+texture = ExtResource( 18 )
+
+[node name="timer_urso" type="Timer" parent="."]
+
+[node name="ativa_urso" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 2477.75, -69.3579 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ativa_urso"]
+position = Vector2( -40.2805, 0 )
+shape = SubResource( 5 )
+
+[node name="esporte3" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="esporte3"]
+position = Vector2( 2.78955, -13.9475 )
+shape = SubResource( 6 )
 [connection signal="body_entered" from="guarana" to="." method="_on_guarana_body_entered"]
+[connection signal="body_entered" from="guarana2" to="." method="_on_guarana2_body_entered"]
+[connection signal="body_entered" from="guarana3" to="." method="_on_guarana3_body_entered"]
+[connection signal="body_entered" from="guarana4" to="." method="_on_guarana4_body_entered"]
+[connection signal="body_entered" from="guarana5" to="." method="_on_guarana5_body_entered"]
+[connection signal="body_entered" from="guarana6" to="." method="_on_guarana6_body_entered"]
+[connection signal="body_entered" from="peixe" to="." method="atingido"]
+[connection signal="body_entered" from="peixe/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="agua" to="." method="atingido"]
+[connection signal="area_entered" from="mata_urso/Area2D" to="." method="_on_mata_urso_area_entered"]
+[connection signal="morri" from="dollynho" to="." method="_on_dollynho_morri"]
 [connection signal="body_entered" from="gol" to="." method="_on_gol_body_entered"]
+[connection signal="finished" from="musica" to="." method="_on_musica_finished"]
+[connection signal="body_entered" from="porco_espinho" to="." method="atingido"]
+[connection signal="timeout" from="timer_urso" to="." method="_on_timer_urso_timeout"]
+[connection signal="body_entered" from="ativa_urso" to="." method="_on_ativa_urso_body_entered"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/morri.wav-e82f15579616d28976c517095fe92f2e.sample"
+
+[deps]
+
+source_file="res://sons/morri.wav"
+dest_files=[ "res://.import/morri.wav-e82f15579616d28976c517095fe92f2e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -10,6 +10,6 @@ func _ready():
 func _physics_process(delta):
 	if (position.x < 1000):
 		direcao = 1
-	if (position.x > 1500):
+	if (position.x > 1330):
 		direcao = -1
 	position.x = (position.x + direcao * delta * 150) 
