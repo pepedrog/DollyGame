@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cuidade_sol.wav-e825fb90fa3e7cbe884156ad85f7469c.sample"
+
+[deps]
+
+source_file="res://sons/cuidade_sol.wav"
+dest_files=[ "res://.import/cuidade_sol.wav-e825fb90fa3e7cbe884156ad85f7469c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

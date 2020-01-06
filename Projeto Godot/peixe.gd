@@ -1,7 +1,6 @@
-extends Area2D
+extends StaticBody2D
 
-# Declare member variables here. Examples:
-var cima
+# Variaveis do peixe
 var baixo
 var subindo = true
 var gravidade = 10 # aceleração da gravidade
@@ -9,11 +8,11 @@ var forca_pulo = 800 # aceleração inicial do pulo
 var delta_pulo = 20  # quantidade de iterações que dura um pulo
 var tempo_pulo = 1
 var intensidade = 0
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	baixo = position.y
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Processa o pulo do peixe, copiado do pulo do dollynho
 func _physics_process(delta):
 	if position.y > baixo:
 		subindo = true

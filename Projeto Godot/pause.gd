@@ -39,11 +39,9 @@ func _input(event):
 			elif $init/tr.visible:
 				# Chama o metodo tela_inicial da cena raiz
 				get_parent().get_parent().tela_inicial()
-			# Só despausa
-			elif $continuar/tr.visible:
-				despausa()
-			else:
+			elif $sair/tr.visible:
 				get_tree().quit()
+			despausa()
 
 func despausa():
 	get_tree().paused = not get_tree().paused

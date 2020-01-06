@@ -3,6 +3,7 @@ extends KinematicBody2D
 signal morri
 
 # variaveis do dollynho
+var zoom = false
 var direcao = Vector2() # vetor bidimensional (x,y) da direção do movimento
 var velocidade = 200 # velocidade do movimento horizontal
 var gravidade = 10 # aceleração da gravidade
@@ -25,7 +26,9 @@ func _ready():
 
 # Função chamada constantemente, "loop principal" do jogo
 func _physics_process(delta):
-	# Pega o tamanho da tela
+	if zoom and $camera.zoom.x > 0.5:
+		$camera.zoom = Vector2($camera.zoom.x - 0.01, $camera.zoom.y - 0.01)
+
 	if not morto:
 		captura_movimento()
 		roda_animacao()
@@ -38,6 +41,7 @@ func _physics_process(delta):
 		direcao = dir_slide
 
 # Função que verifica se alguma tecla de andar foi apertada e atualiza a direção
+# e processa parte do movimento do pulo
 func captura_movimento():
 	#pega a tecla apertada do input
 	var esquerda = Input.is_action_pressed("ui_left")
@@ -96,6 +100,7 @@ func captura_movimento():
 			direcao.y = - forca_pulo
 		else:
 			direcao.y = 0
+
 # Escolhe a animação (sprite) com base na direção do movimento
 func roda_animacao():
 	if direcao.x != 0:
@@ -105,17 +110,25 @@ func roda_animacao():
 	$animacao.flip_h = direcao.x < 0
 	$animacao.play()
 
+# Define os limites da camera do dollynho, chamada pela fase
 func limita_camera(esquerda, direita, cima, baixo):
 	$camera.limit_left = esquerda
 	$camera.limit_right = direita
 	$camera.limit_bottom = baixo
 	$camera.limit_top = cima
 
+# Mata o dollynho
 func morre():
 	if not morto:
 		$morri.play()
 		$animacao.animation = "morrendo"
 		morto = true
 
+# Avisa todo mundo que o dollynho morreu
 func _on_morri_finished():
 	emit_signal("morri")
+
+# Detecta corpos inimigos entrando no dollynho
+func _on_morte_body_entered(body):
+	if body != self:
+		morre()
