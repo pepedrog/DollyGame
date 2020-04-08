@@ -1,5 +1,7 @@
 extends Node2D
 
+signal acabou
+
 var guaranas_coletados = 0
 var urso = preload("res://urso.tscn")
 var esporte = false
@@ -12,9 +14,13 @@ func _ready():
 	$bola.position = Vector2(845, -140)
 	$peixe.set_physics_process(false)
 	$dollynho.limita_camera(0, 100000, -1000, 0)
-	#$dollynho.position = Vector2(90, -80)
-	$dollynho.position = Vector2(6800, -200)
-	guaranas_coletados = 7
+	$dollynho.position = Vector2(90, -80)
+	$dollynho/camera.current = true;
+	$dollynho2.set_physics_process(false)
+	$dollynho2.hide();
+	$portal.hide();
+	$portal.set_process(false)
+	#$dollynho.position = Vector2(6800, -200)
 
 func _on_gol_body_entered(body):
 	$flamengo.play()
@@ -91,11 +97,19 @@ func _on_Area2D_area_entered(body):
 
 # Dollynho chegou no fim da fase, dispara a rena e o dialogo
 func _on_fim_body_entered(body):
-	$rena.set_physics_process(true)
 	$dollynho.morto = true
+	$portal.show()
 	$dollynho/animacao.animation = "parado"
+	$portal.set_process(true)
+	$dollynho.zoom = true
 
 func _on_fim_rena_body_entered(body):
-	$rena.set_physics_process(false)
-	$dollynho.zoom = true
+	$dollynho2.set_physics_process(false)
 	$dollynho/camera.drag_margin_right = 0
+	$enter.show()
+	$baloes.set_process(true)
+	$baloes/balao1.show()
+
+func _on_portal_girou():
+	$dollynho2.set_physics_process(true)
+	$dollynho2.show()

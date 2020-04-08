@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://fase1.gd" type="Script" id=1]
 [ext_resource path="res://Imagens/fundo3.jpg" type="Texture" id=2]
@@ -25,29 +25,34 @@
 [ext_resource path="res://sons/cuidade_sol.wav" type="AudioStream" id=23]
 [ext_resource path="res://Imagens/guarana.png" type="Texture" id=24]
 [ext_resource path="res://Ocra.tres" type="DynamicFont" id=25]
-[ext_resource path="res://rena.gd" type="Script" id=26]
-[ext_resource path="res://Imagens/rena.png" type="Texture" id=27]
-[ext_resource path="res://Imagens/balao1.jpg" type="Texture" id=28]
+[ext_resource path="res://Imagens/portal1.png" type="Texture" id=26]
+[ext_resource path="res://portal.gd" type="Script" id=27]
+[ext_resource path="res://baloes.gd" type="Script" id=28]
+[ext_resource path="res://Imagens/balao2.jpg" type="Texture" id=29]
+[ext_resource path="res://Imagens/balao6.jpg" type="Texture" id=30]
+[ext_resource path="res://Imagens/balao3.jpg" type="Texture" id=31]
+[ext_resource path="res://Imagens/balao7.jpg" type="Texture" id=32]
+[ext_resource path="res://Imagens/balao4.jpg" type="Texture" id=33]
+[ext_resource path="res://Imagens/balao5.jpg" type="Texture" id=34]
+[ext_resource path="res://dollynho2.gd" type="Script" id=35]
+[ext_resource path="res://Imagens/dollynho_parado.png" type="Texture" id=36]
+[ext_resource path="res://Imagens/enter.png" type="Texture" id=37]
 
 [sub_resource type="SegmentShape2D" id=1]
 a = Vector2( -224.281, 681.398 )
 b = Vector2( -240.455, -338.469 )
 
-[sub_resource type="PhysicsMaterial" id=2]
-friction = 50.0
-bounce = 50.0
-
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 50000, 10 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 5.41162, 49.4138 )
 
-[sub_resource type="SegmentShape2D" id=5]
+[sub_resource type="SegmentShape2D" id=4]
 a = Vector2( 29.3306, 55.7078 )
 b = Vector2( 127.514, -70.1687 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=5]
 
 [sub_resource type="SegmentShape2D" id=6]
 a = Vector2( -31.7732, -85.522 )
@@ -57,17 +62,30 @@ b = Vector2( -29.2556, 7.62653 )
 a = Vector2( 1112.21, -358.988 )
 b = Vector2( 736.248, -357.04 )
 
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 15.9521, 51.775 )
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 24.2832, 1.22311 )
 
-[sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 24.2832, 3.93449 )
-
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 1.86523, 94.1629 )
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 13.6372, 3.37022 )
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 13.6372, 1.27951 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+angular_velocity = 1.0
+
+[sub_resource type="ParticlesMaterial" id=12]
+next_pass = SubResource( 11 )
+
+[sub_resource type="CanvasItemMaterial" id=13]
+next_pass = SubResource( 12 )
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 18.8872, 10 )
 
 [node name="fase1" type="Node2D"]
 position = Vector2( 0, 2 )
@@ -101,7 +119,7 @@ shape = SubResource( 1 )
 position = Vector2( 5424.04, -444.745 )
 
 [node name="guarana2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 539.12, -495.104 )
+position = Vector2( 251.219, -106.211 )
 
 [node name="guarana3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1819.02, -295.667 )
@@ -170,6 +188,7 @@ collision_layer = 1024
 collision_mask = 1024
 
 [node name="gramas" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="grama" parent="gramas" instance=ExtResource( 7 )]
 position = Vector2( 202, -30 )
@@ -275,11 +294,6 @@ position = Vector2( 720.72, -189.416 )
 rotation = 1.22173
 scale = Vector2( 0.4, 0.5 )
 
-[node name="grama6" parent="gramas" instance=ExtResource( 7 )]
-position = Vector2( 134.323, -887.621 )
-scale = Vector2( 0.3, 0.5 )
-physics_material_override = SubResource( 2 )
-
 [node name="paredes1" type="Node2D" parent="."]
 editor/display_folded = true
 
@@ -305,7 +319,7 @@ position = Vector2( 20, -928 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="paredes1/limite_ceu"]
 position = Vector2( 49998, -1005.12 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="paredes2" type="Node2D" parent="."]
 editor/display_folded = true
@@ -414,13 +428,13 @@ collision_mask = 1024
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mata_urso/Area2D"]
 position = Vector2( 0, 10.0701 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Area2D2" type="Area2D" parent="mata_urso"]
 position = Vector2( -2.51758, -122.52 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mata_urso/Area2D2"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="paredes3" type="Node2D" parent="."]
 editor/display_folded = true
@@ -452,7 +466,7 @@ scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="porta"]
-shape = SubResource( 9 )
+shape = SubResource( 5 )
 
 [node name="dolly_guarana" type="Sprite" parent="."]
 position = Vector2( 292.034, -219.025 )
@@ -566,43 +580,86 @@ text = "0/8"
 align = 2
 valign = 1
 
-[node name="rena" type="KinematicBody2D" parent="."]
-position = Vector2( 7564.32, -30 )
-script = ExtResource( 26 )
-
-[node name="Sprite" type="Sprite" parent="rena"]
-position = Vector2( 751.935, -59.7458 )
-scale = Vector2( 0.370514, 0.33411 )
-texture = ExtResource( 27 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="rena"]
-position = Vector2( 731.642, -81.7697 )
-shape = SubResource( 10 )
-
 [node name="fim_rena" type="Area2D" parent="."]
 position = Vector2( 6956.25, -192.161 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="fim_rena"]
-position = Vector2( 651.796, 132.2 )
-shape = SubResource( 12 )
+position = Vector2( 661, 134.799 )
+shape = SubResource( 8 )
 
 [node name="fim_fase" type="StaticBody2D" parent="."]
 position = Vector2( 7563.53, -73.4458 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fim_fase"]
 position = Vector2( 17.6812, -72.5906 )
-shape = SubResource( 11 )
-
-[node name="balao1" type="Sprite" parent="."]
-position = Vector2( 7721.77, -202.627 )
-texture = ExtResource( 28 )
+shape = SubResource( 9 )
 
 [node name="fim" type="Area2D" parent="."]
 position = Vector2( 6895.76, -108.68 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fim"]
-position = Vector2( 668.632, 48.8081 )
-shape = SubResource( 8 )
+position = Vector2( 668.632, 50.8081 )
+shape = SubResource( 10 )
+
+[node name="portal" type="Sprite" parent="."]
+modulate = Color( 0.239216, 1, 0.266667, 1 )
+material = SubResource( 13 )
+position = Vector2( 7626.89, -156.377 )
+scale = Vector2( 0.01, 0.01 )
+texture = ExtResource( 26 )
+script = ExtResource( 27 )
+
+[node name="baloes" type="Node2D" parent="."]
+position = Vector2( 7585.74, -140.852 )
+script = ExtResource( 28 )
+
+[node name="balao1" type="Sprite" parent="baloes"]
+visible = false
+position = Vector2( 112.435, -21.97 )
+texture = ExtResource( 29 )
+
+[node name="balao2" type="Sprite" parent="baloes"]
+visible = false
+position = Vector2( -100, -23.262 )
+texture = ExtResource( 30 )
+
+[node name="balao3" type="Sprite" parent="baloes"]
+visible = false
+position = Vector2( 113.727, -16.8006 )
+texture = ExtResource( 31 )
+
+[node name="balao4" type="Sprite" parent="baloes"]
+visible = false
+position = Vector2( -100, -20.678 )
+texture = ExtResource( 32 )
+
+[node name="balao5" type="Sprite" parent="baloes"]
+visible = false
+position = Vector2( 112.435, -18.0929 )
+texture = ExtResource( 33 )
+
+[node name="balao6" type="Sprite" parent="baloes"]
+visible = false
+position = Vector2( 112.435, -16.8006 )
+texture = ExtResource( 34 )
+
+[node name="dollynho2" type="KinematicBody2D" parent="."]
+position = Vector2( 7656.98, -194.927 )
+script = ExtResource( 35 )
+
+[node name="Sprite" type="Sprite" parent="dollynho2"]
+position = Vector2( -27.8553, 35.4763 )
+texture = ExtResource( 36 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dollynho2"]
+position = Vector2( -27.8672, 46.2358 )
+shape = SubResource( 14 )
+
+[node name="enter" type="Sprite" parent="."]
+visible = false
+position = Vector2( 7842.88, -77.5456 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 37 )
 [connection signal="body_entered" from="guarana" to="." method="_on_guarana_body_entered"]
 [connection signal="body_entered" from="guarana2" to="." method="_on_guarana2_body_entered"]
 [connection signal="body_entered" from="guarana3" to="." method="_on_guarana3_body_entered"]
@@ -621,3 +678,4 @@ shape = SubResource( 8 )
 [connection signal="body_entered" from="esporte2" to="." method="_on_esporte2_body_entered"]
 [connection signal="body_entered" from="fim_rena" to="." method="_on_fim_rena_body_entered"]
 [connection signal="body_entered" from="fim" to="." method="_on_fim_body_entered"]
+[connection signal="girou" from="portal" to="." method="_on_portal_girou"]

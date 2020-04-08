@@ -12,8 +12,12 @@ var spawn_dollynho = Vector2(107, 590)
 
 # Função chamada quando inicia a fase
 func _ready():
-	dollynho = $dollynho
-	add_dollynho(spawn_dollynho) 
+	$dollynho.limita_camera(0, 100000, -200, 750)
+	$caminhao_dolly.limita_camera(0, 100000, -200, 750)
+	$dollynho.gravidade = 0
+	$dollynho.position = spawn_dollynho
+	$dollynho.pode_pular = true
+	$dollynho.forca_pulo = 100
 	$Timer.start() # Da um tempinha pra musica começar
 
 # Toca a musica no começo da fase
@@ -24,28 +28,21 @@ func _process(delta):
 	if ta_no_portao1 and Input.is_action_pressed("ui_e"):
 		emit_signal("fase1")
 
-# Prepara e adiciona o dollynho na fase
-func add_dollynho(spawn):
-	dollynho.limita_camera(0, 100000, -200, 750)
-	dollynho.gravidade = 0
-	dollynho.position = spawn
-	dollynho.pode_pular = true
-	dollynho.forca_pulo = 100
-	add_child(dollynho)
-
 # Função que trata o sinal emitido pelo caminhao quando aperta Q
 func _on_caminhao_dolly_saiu_do_caminhao():
 	# Desliga o caminhao e instancia um novo dollynho
 	$caminhao_dolly.desliga("direita")
-	dollynho = dollynho_scene.instance()
-	add_dollynho(Vector2($caminhao_dolly.position.x + 100, $caminhao_dolly.position.y))
+	$dollynho.position = Vector2($caminhao_dolly.position.x + 100, $caminhao_dolly.position.y)
+	$dollynho.show()
+	$dollynho/camera.current = true
 
 # Função pra tratar o sinal emitido pelo caminhao quando o dollynho entra nele
 func _on_caminhao_dolly_entrou_no_caminhao():
 	# liga o caminhao e mata o dollynho
 	$caminhao_dolly.liga("direita", true)
-	$caminhao_dolly.limita_camera(0, 100000, -200, 750)
-	remove_child($dollynho)
+	$dollynho.hide()
+	$dollynho.position.y = 0
+	$caminhao_dolly/camera.current = true
 
 # Deixa a musica em loop
 func _on_musica_finished():

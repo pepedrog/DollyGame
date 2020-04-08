@@ -17,15 +17,33 @@ func _on_intro_fase1():
 	remove_child(get_node("intro"))
 	add_child(fase1.instance())
 
+# Função que prepara a fase da introdução e adiciona
+func carrega_intro():
+	fase = 0
+	var intro = fase0.instance()
+	intro.connect("fase1", self, "_on_intro_fase1")
+	add_child(intro)
+
+func carrega_fase1():
+	fase = 1
+	var fasei = fase1.instance()
+	fasei.connect("acabou", self, "acabou_fase1")
+	add_child(fasei)
+
+func acabou_fase1():
+	remove_child(get_node("fase1"))
+	carrega_intro()
+
 # Funções que interagem com o menu de pausa
 # Reinicia fase atual
 func reinicia():
 	if fase == 0:
 		remove_child(get_node("intro"))
-		add_child(fase0.instance())
+		carrega_intro()
 	elif fase == 1:
 		remove_child(get_node("fase1"))
-		add_child(fase1.instance())
+		carrega_fase1()
+		
 
 # Vai pra fase inicial, da estrada
 func tela_inicial():
@@ -35,10 +53,3 @@ func tela_inicial():
 		remove_child(get_node("fase1"))
 	fase = 0
 	carrega_intro()
-
-# Função que prepara a fase da introdução e adiciona
-func carrega_intro():
-	fase = 0
-	var intro = fase0.instance()
-	intro.connect("fase1", self, "_on_intro_fase1")
-	add_child(intro)

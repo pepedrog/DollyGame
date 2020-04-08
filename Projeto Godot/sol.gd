@@ -14,5 +14,5 @@ func _on_timer_sol_timeout():
 	f.position = $Path2D/PathFollow2D.position
 	direction += rand_range(-PI / 4, PI / 4)
 	f.rotation = direction
-	f.linear_velocity = Vector2(rand_range(1, 400), 0)
+	f.linear_velocity = Vector2(rand_range(1, 500), 0)
 	f.linear_velocity = f.linear_velocity.rotated(direction)

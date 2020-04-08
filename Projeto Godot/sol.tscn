@@ -39,5 +39,5 @@ position = Vector2( 155.392, 78.782 )
 rotation = 1.96932
 
 [node name="timer_sol" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.2
 [connection signal="timeout" from="timer_sol" to="." method="_on_timer_sol_timeout"]
