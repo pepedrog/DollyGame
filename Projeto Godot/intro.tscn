@@ -54,10 +54,8 @@ extents = Vector2( 50000, 5 )
 script = ExtResource( 1 )
 
 [node name="fundo" type="ParallaxBackground" parent="."]
-editor/display_folded = true
 
 [node name="ceu" type="ParallaxLayer" parent="fundo"]
-editor/display_folded = true
 motion_scale = Vector2( 0.3, 0.5 )
 motion_mirroring = Vector2( 1922, 0 )
 
@@ -70,7 +68,6 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 1922, 5000 )
 
 [node name="logos" type="ParallaxLayer" parent="fundo"]
-editor/display_folded = true
 motion_scale = Vector2( 0.5, 1 )
 
 [node name="dolly" type="Sprite" parent="fundo/logos"]
@@ -97,7 +94,6 @@ position = Vector2( 1129.02, 381.606 )
 texture = ExtResource( 7 )
 
 [node name="rua" type="ParallaxLayer" parent="fundo"]
-editor/display_folded = true
 motion_mirroring = Vector2( 2498, 0 )
 
 [node name="rua1" type="Sprite" parent="fundo/rua"]
@@ -107,7 +103,6 @@ texture = ExtResource( 8 )
 centered = false
 
 [node name="portao1" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 7819.07, 527.053 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="portao1"]
@@ -137,10 +132,8 @@ stream = ExtResource( 19 )
 one_shot = true
 
 [node name="limites" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="limite_rua_lateral" type="StaticBody2D" parent="limites"]
-editor/display_folded = true
 position = Vector2( 4591.01, 747.012 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="limites/limite_rua_lateral"]
@@ -148,7 +141,6 @@ position = Vector2( -4575.16, -356.012 )
 shape = SubResource( 3 )
 
 [node name="limite_rua2" type="StaticBody2D" parent="limites"]
-editor/display_folded = true
 position = Vector2( 4591.01, 747.012 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="limites/limite_rua2"]
@@ -156,7 +148,6 @@ position = Vector2( 7.782, -200 )
 shape = SubResource( 4 )
 
 [node name="limite_rua1" type="StaticBody2D" parent="limites"]
-editor/display_folded = true
 position = Vector2( 4550, 735 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="limites/limite_rua1"]

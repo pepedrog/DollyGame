@@ -10,4 +10,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	move_and_slide(Vector2(0,50))
+	move_and_slide(Vector2(0,55))

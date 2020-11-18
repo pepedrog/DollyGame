@@ -9,6 +9,8 @@ onready var dollynho_scene = preload("res://dollynho.tscn") # Cena do dollynho
 var dollynho # variavel para instanciar o dollynho
 var ta_no_portao1 = false
 var spawn_dollynho = Vector2(107, 590)
+var spawn_dollynho_fase1 = Vector2(6500, 590)
+var spawn_caminhao_fase1 = Vector2(6500, 690)
 
 # Função chamada quando inicia a fase
 func _ready():
@@ -19,6 +21,10 @@ func _ready():
 	$dollynho.pode_pular = true
 	$dollynho.forca_pulo = 100
 	$Timer.start() # Da um tempinha pra musica começar
+
+func acabou_fase1():
+	$dollynho.position = spawn_dollynho_fase1
+	$caminhao_dolly.position = spawn_caminhao_fase1
 
 # Toca a musica no começo da fase
 func _on_Timer_timeout():

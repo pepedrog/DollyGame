@@ -3,7 +3,7 @@ extends Node2D
 signal acabou
 
 var guaranas_coletados = 0
-var urso = preload("res://urso.tscn")
+var urso = preload("res://fase_1/urso.tscn")
 var esporte = false
 
 # Called when the node enters the scene tree for the first time.
@@ -95,20 +95,13 @@ func _on_Area2D2_body_entered(body):
 func _on_Area2D_area_entered(body):
 	body.queue_free()
 
-# Dollynho chegou no fim da fase, dispara a rena e o dialogo
+# Dollynho chegou no fim da fase, dispara o portal e o dialogo
 func _on_fim_body_entered(body):
 	$dollynho.morto = true
 	$portal.show()
 	$dollynho/animacao.animation = "parado"
 	$portal.set_process(true)
 	$dollynho.zoom = true
-
-func _on_fim_rena_body_entered(body):
-	$dollynho2.set_physics_process(false)
-	$dollynho/camera.drag_margin_right = 0
-	$enter.show()
-	$baloes.set_process(true)
-	$baloes/balao1.show()
 
 func _on_portal_girou():
 	$dollynho2.set_physics_process(true)

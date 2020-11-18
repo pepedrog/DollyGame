@@ -4,7 +4,7 @@ extends Node2D
 var fase = 0 # Fase atual
 # Fases pré carregadas
 var fase0 = preload("res://intro.tscn") # intro
-var fase1 = preload("res://fase1.tscn") # Dolly guarana Dolly
+var fase1 = preload("res://fase_1/fase1.tscn") # Dolly guarana Dolly
 
 # Função chamada quando o jogo é iniciado
 func _ready():
@@ -18,10 +18,12 @@ func _on_intro_fase1():
 	add_child(fase1.instance())
 
 # Função que prepara a fase da introdução e adiciona
-func carrega_intro():
+func carrega_intro(saindo_fase = 0):
 	fase = 0
 	var intro = fase0.instance()
 	intro.connect("fase1", self, "_on_intro_fase1")
+	if saindo_fase == 1:
+		intro.acabou_fase1()
 	add_child(intro)
 
 func carrega_fase1():
@@ -32,7 +34,7 @@ func carrega_fase1():
 
 func acabou_fase1():
 	remove_child(get_node("fase1"))
-	carrega_intro()
+	carrega_intro(1)
 
 # Funções que interagem com o menu de pausa
 # Reinicia fase atual

@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Imagens/agua1.png" type="Texture" id=1]
-[ext_resource path="res://Imagens/agua2.png" type="Texture" id=2]
+[ext_resource path="res://Imagens/agua2.png" type="Texture" id=1]
+[ext_resource path="res://Imagens/agua1.png" type="Texture" id=2]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
 "speed": 2.0

@@ -1,41 +1,41 @@
 [gd_scene load_steps=52 format=2]
 
-[ext_resource path="res://fase1.gd" type="Script" id=1]
-[ext_resource path="res://Imagens/fundo3.jpg" type="Texture" id=2]
-[ext_resource path="res://guarana.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Imagens/seta.png" type="Texture" id=4]
-[ext_resource path="res://peixe.tscn" type="PackedScene" id=5]
-[ext_resource path="res://agua.tscn" type="PackedScene" id=6]
-[ext_resource path="res://grama.tscn" type="PackedScene" id=7]
-[ext_resource path="res://grama.gd" type="Script" id=8]
-[ext_resource path="res://parede_terra.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Imagens/porta.png" type="Texture" id=10]
-[ext_resource path="res://Imagens/dolly_guarana_escrito.png" type="Texture" id=11]
-[ext_resource path="res://dollynho.tscn" type="PackedScene" id=12]
-[ext_resource path="res://gol.tscn" type="PackedScene" id=13]
-[ext_resource path="res://bola.tscn" type="PackedScene" id=14]
-[ext_resource path="res://sons/o_melhor.wav" type="AudioStream" id=15]
-[ext_resource path="res://sons/Flamengo go go go (online-audio-converter.com).wav" type="AudioStream" id=16]
-[ext_resource path="res://sons/dolly_guarana.wav" type="AudioStream" id=17]
-[ext_resource path="res://sons/muito_esporte.wav" type="AudioStream" id=18]
-[ext_resource path="res://porco_espinho.tscn" type="PackedScene" id=19]
-[ext_resource path="res://urso.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Imagens/arvore_urso.png" type="Texture" id=21]
-[ext_resource path="res://sol.tscn" type="PackedScene" id=22]
-[ext_resource path="res://sons/cuidade_sol.wav" type="AudioStream" id=23]
-[ext_resource path="res://Imagens/guarana.png" type="Texture" id=24]
-[ext_resource path="res://Ocra.tres" type="DynamicFont" id=25]
-[ext_resource path="res://Imagens/portal1.png" type="Texture" id=26]
-[ext_resource path="res://portal.gd" type="Script" id=27]
-[ext_resource path="res://baloes.gd" type="Script" id=28]
-[ext_resource path="res://Imagens/balao2.jpg" type="Texture" id=29]
-[ext_resource path="res://Imagens/balao6.jpg" type="Texture" id=30]
-[ext_resource path="res://Imagens/balao3.jpg" type="Texture" id=31]
-[ext_resource path="res://Imagens/balao7.jpg" type="Texture" id=32]
-[ext_resource path="res://Imagens/balao4.jpg" type="Texture" id=33]
-[ext_resource path="res://Imagens/balao5.jpg" type="Texture" id=34]
-[ext_resource path="res://dollynho2.gd" type="Script" id=35]
-[ext_resource path="res://Imagens/dollynho_parado.png" type="Texture" id=36]
+[ext_resource path="res://Ocra.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fase_1/grama.gd" type="Script" id=2]
+[ext_resource path="res://fase_1/fase1.gd" type="Script" id=3]
+[ext_resource path="res://fase_1/urso.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fase_1/agua.tscn" type="PackedScene" id=5]
+[ext_resource path="res://fase_1/guarana.tscn" type="PackedScene" id=6]
+[ext_resource path="res://fase_1/peixe.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Imagens/dollynho_parado.png" type="Texture" id=8]
+[ext_resource path="res://dollynho.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Imagens/fundo3.jpg" type="Texture" id=10]
+[ext_resource path="res://Imagens/guarana.png" type="Texture" id=11]
+[ext_resource path="res://Imagens/dolly_guarana_escrito.png" type="Texture" id=12]
+[ext_resource path="res://Imagens/seta.png" type="Texture" id=13]
+[ext_resource path="res://fase_1/grama.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Imagens/porta.png" type="Texture" id=15]
+[ext_resource path="res://fase_1/gol.tscn" type="PackedScene" id=16]
+[ext_resource path="res://sons/Flamengo go go go (online-audio-converter.com).wav" type="AudioStream" id=17]
+[ext_resource path="res://sons/dolly_guarana.wav" type="AudioStream" id=18]
+[ext_resource path="res://fase_1/parede_terra.tscn" type="PackedScene" id=19]
+[ext_resource path="res://fase_1/bola.tscn" type="PackedScene" id=20]
+[ext_resource path="res://sons/o_melhor.wav" type="AudioStream" id=21]
+[ext_resource path="res://sons/muito_esporte.wav" type="AudioStream" id=22]
+[ext_resource path="res://fase_1/porco_espinho.tscn" type="PackedScene" id=23]
+[ext_resource path="res://fase_1/baloes.gd" type="Script" id=24]
+[ext_resource path="res://Imagens/arvore_urso.png" type="Texture" id=25]
+[ext_resource path="res://Imagens/balao6.jpg" type="Texture" id=26]
+[ext_resource path="res://Imagens/balao5.jpg" type="Texture" id=27]
+[ext_resource path="res://Imagens/balao4.jpg" type="Texture" id=28]
+[ext_resource path="res://Imagens/portal1.png" type="Texture" id=29]
+[ext_resource path="res://dollynho2.gd" type="Script" id=30]
+[ext_resource path="res://fase_1/sol.tscn" type="PackedScene" id=31]
+[ext_resource path="res://sons/cuidade_sol.wav" type="AudioStream" id=32]
+[ext_resource path="res://fase_1/portal.gd" type="Script" id=33]
+[ext_resource path="res://Imagens/balao3.jpg" type="Texture" id=34]
+[ext_resource path="res://Imagens/balao7.jpg" type="Texture" id=35]
+[ext_resource path="res://Imagens/balao2.jpg" type="Texture" id=36]
 [ext_resource path="res://Imagens/enter.png" type="Texture" id=37]
 
 [sub_resource type="SegmentShape2D" id=1]
@@ -52,7 +52,8 @@ extents = Vector2( 5.41162, 49.4138 )
 a = Vector2( 29.3306, 55.7078 )
 b = Vector2( 127.514, -70.1687 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 12.1963, 172.205 )
 
 [sub_resource type="SegmentShape2D" id=6]
 a = Vector2( -31.7732, -85.522 )
@@ -89,10 +90,9 @@ extents = Vector2( 18.8872, 10 )
 
 [node name="fase1" type="Node2D"]
 position = Vector2( 0, 2 )
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-editor/display_folded = true
 
 [node name="ceu" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.3, 0.5 )
@@ -100,13 +100,12 @@ motion_mirroring = Vector2( 1922, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ceu"]
 position = Vector2( 2.65002, -689.424 )
-texture = ExtResource( 2 )
+texture = ExtResource( 10 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1922, 7000 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 6432.62, -603.897 )
 collision_layer = 2048
 collision_mask = 2048
@@ -115,204 +114,201 @@ collision_mask = 2048
 position = Vector2( 65.0269, -25.1801 )
 shape = SubResource( 1 )
 
-[node name="guarana" parent="." instance=ExtResource( 3 )]
+[node name="guarana" parent="." instance=ExtResource( 6 )]
 position = Vector2( 5424.04, -444.745 )
 
-[node name="guarana2" parent="." instance=ExtResource( 3 )]
+[node name="guarana2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 251.219, -106.211 )
 
-[node name="guarana3" parent="." instance=ExtResource( 3 )]
+[node name="guarana3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1819.02, -295.667 )
 
-[node name="guarana4" parent="." instance=ExtResource( 3 )]
+[node name="guarana4" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2005.32, -121.957 )
 
-[node name="guarana5" parent="." instance=ExtResource( 3 )]
+[node name="guarana5" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3314.44, -162.238 )
 
-[node name="guarana6" parent="." instance=ExtResource( 3 )]
+[node name="guarana6" parent="." instance=ExtResource( 6 )]
 position = Vector2( 4462.43, -84.1943 )
 
-[node name="guarana7" parent="." instance=ExtResource( 3 )]
+[node name="guarana7" parent="." instance=ExtResource( 6 )]
 position = Vector2( 5774.06, -89.2294 )
 
-[node name="guarana8" parent="." instance=ExtResource( 3 )]
+[node name="guarana8" parent="." instance=ExtResource( 6 )]
 position = Vector2( 6342.15, -396.754 )
 
 [node name="setas" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 0, -30 )
 
 [node name="seta" type="Sprite" parent="setas"]
 position = Vector2( 620, -90 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 4 )
+texture = ExtResource( 13 )
 
 [node name="seta5" type="Sprite" parent="setas"]
 position = Vector2( 620, -370 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 4 )
+texture = ExtResource( 13 )
 
 [node name="seta3" type="Sprite" parent="setas"]
 position = Vector2( 620, -230 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 4 )
+texture = ExtResource( 13 )
 
 [node name="seta2" type="Sprite" parent="setas"]
 position = Vector2( 620, -160 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 4 )
+texture = ExtResource( 13 )
 flip_h = true
 
 [node name="seta4" type="Sprite" parent="setas"]
 position = Vector2( 620, -300 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 4 )
+texture = ExtResource( 13 )
 flip_h = true
 
-[node name="peixe" parent="." instance=ExtResource( 5 )]
+[node name="peixe" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2013.8, 21.1025 )
 collision_layer = 1024
 collision_mask = 1024
 
-[node name="agua" parent="." instance=ExtResource( 6 )]
+[node name="agua" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2026.13, -20.6928 )
 scale = Vector2( 0.5, 0.5 )
 collision_layer = 1024
 collision_mask = 1024
 
-[node name="agua2" parent="." instance=ExtResource( 6 )]
+[node name="agua2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 6513.74, -21.6525 )
 scale = Vector2( 1, 0.5 )
 collision_layer = 1024
 collision_mask = 1024
 
 [node name="gramas" type="Node2D" parent="."]
-editor/display_folded = true
 
-[node name="grama" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 202, -30 )
 
-[node name="grama2" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama2" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 505, -30 )
 
-[node name="grama3" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama3" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 909, -30 )
 
-[node name="grama4" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama4" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 1313, -30 )
 
-[node name="grama5" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama5" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 1715.49, -30 )
 
-[node name="grama11" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama11" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 2298.83, -30 )
 
-[node name="grama12" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama12" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 2702.8, -30 )
 
-[node name="grama13" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama13" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 3106.23, -30 )
 
-[node name="grama14" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama14" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 3509.67, -30 )
 
-[node name="grama16" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama16" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 3907.55, -30 )
 
-[node name="grama19" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama19" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 4308.87, -30 )
 
-[node name="grama20" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama20" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 4712.16, -30 )
 
-[node name="grama22" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama22" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 5107.41, -30 )
 
-[node name="grama23" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama23" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 5510.21, -30 )
 
-[node name="grama24" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama24" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 5909.54, -30 )
 
-[node name="grama31" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama31" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 6071.54, -30 )
 
-[node name="grama25" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama25" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 5815.18, -495 )
 
-[node name="grama26" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama26" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 6294.47, -495 )
 
-[node name="grama30" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama30" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 6320.66, -354.752 )
 scale = Vector2( 0.3, 0.3 )
 
-[node name="grama27" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama27" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 6775.67, -30 )
 
-[node name="grama28" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama28" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 7167.58, -30 )
 
-[node name="grama29" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama29" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 7564.32, -30 )
 
-[node name="grama32" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama32" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 7965.68, -29.95 )
 
-[node name="grama7" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama7" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 1731.54, -353 )
 scale = Vector2( 1, 0.5 )
 
-[node name="grama9" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama9" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 1856.38, -255.499 )
 scale = Vector2( 1, 0.5 )
 
-[node name="grama17" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama17" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 2797.53, -120 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="grama18" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama18" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 3315.48, -120 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="grama15" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama15" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 3801.89, -120 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="grama21" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama21" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 4274.61, -120 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="grama8" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama8" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 1330, -353 )
 scale = Vector2( 1, 0.5 )
-script = ExtResource( 8 )
+script = ExtResource( 2 )
 
-[node name="grama10" parent="gramas" instance=ExtResource( 7 )]
+[node name="grama10" parent="gramas" instance=ExtResource( 14 )]
 position = Vector2( 720.72, -189.416 )
 rotation = 1.22173
 scale = Vector2( 0.4, 0.5 )
 
 [node name="paredes1" type="Node2D" parent="."]
-editor/display_folded = true
 
-[node name="parede_terra" parent="paredes1" instance=ExtResource( 9 )]
+[node name="parede_terra" parent="paredes1" instance=ExtResource( 19 )]
 position = Vector2( 20, -123.033 )
 
-[node name="parede_terra2" parent="paredes1" instance=ExtResource( 9 )]
+[node name="parede_terra2" parent="paredes1" instance=ExtResource( 19 )]
 position = Vector2( 20, -289.127 )
 
-[node name="parede_terra3" parent="paredes1" instance=ExtResource( 9 )]
+[node name="parede_terra3" parent="paredes1" instance=ExtResource( 19 )]
 position = Vector2( 20, -630.66 )
 
-[node name="parede_terra4" parent="paredes1" instance=ExtResource( 9 )]
+[node name="parede_terra4" parent="paredes1" instance=ExtResource( 19 )]
 position = Vector2( 20, -459.322 )
 
-[node name="parede_terra5" parent="paredes1" instance=ExtResource( 9 )]
+[node name="parede_terra5" parent="paredes1" instance=ExtResource( 19 )]
 position = Vector2( 20, -801 )
 
-[node name="parede_terra6" parent="paredes1" instance=ExtResource( 9 )]
+[node name="parede_terra6" parent="paredes1" instance=ExtResource( 19 )]
 position = Vector2( 20, -928 )
 
 [node name="limite_ceu" type="StaticBody2D" parent="paredes1"]
@@ -322,102 +318,96 @@ position = Vector2( 49998, -1005.12 )
 shape = SubResource( 2 )
 
 [node name="paredes2" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 672.758, -2.65002 )
 
-[node name="parede_terra" parent="paredes2" instance=ExtResource( 9 )]
+[node name="parede_terra" parent="paredes2" instance=ExtResource( 19 )]
 position = Vector2( 20, -123.033 )
 
-[node name="parede_terra2" parent="paredes2" instance=ExtResource( 9 )]
+[node name="parede_terra2" parent="paredes2" instance=ExtResource( 19 )]
 position = Vector2( 20, -289.127 )
 
-[node name="parede_terra3" parent="paredes2" instance=ExtResource( 9 )]
+[node name="parede_terra3" parent="paredes2" instance=ExtResource( 19 )]
 position = Vector2( -135, -211.955 )
 
-[node name="parede_terra5" parent="paredes2" instance=ExtResource( 9 )]
+[node name="parede_terra5" parent="paredes2" instance=ExtResource( 19 )]
 position = Vector2( -135, -381.645 )
 
 [node name="paredes4" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 5745.58, -2.64999 )
 
-[node name="parede_terra" parent="paredes4" instance=ExtResource( 9 )]
+[node name="parede_terra" parent="paredes4" instance=ExtResource( 19 )]
 position = Vector2( -27.833, -95.3401 )
 rotation = 0.349066
 collision_layer = 2049
 collision_mask = 2049
 
-[node name="parede_terra2" parent="paredes4" instance=ExtResource( 9 )]
+[node name="parede_terra2" parent="paredes4" instance=ExtResource( 19 )]
 position = Vector2( 2.37744, -251.364 )
 
-[node name="parede_terra4" parent="paredes4" instance=ExtResource( 9 )]
+[node name="parede_terra4" parent="paredes4" instance=ExtResource( 19 )]
 position = Vector2( 366.242, -120.573 )
 
-[node name="parede_terra6" parent="paredes4" instance=ExtResource( 9 )]
+[node name="parede_terra6" parent="paredes4" instance=ExtResource( 19 )]
 position = Vector2( 366.242, -280.574 )
 
-[node name="parede_terra7" parent="paredes4" instance=ExtResource( 9 )]
+[node name="parede_terra7" parent="paredes4" instance=ExtResource( 19 )]
 position = Vector2( 366.242, -385.696 )
 
-[node name="parede_terra5" parent="paredes4" instance=ExtResource( 9 )]
+[node name="parede_terra5" parent="paredes4" instance=ExtResource( 19 )]
 position = Vector2( -112.342, -391.715 )
 
 [node name="paredes6" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 5745.58, -2.64999 )
 
-[node name="parede_terra" parent="paredes6" instance=ExtResource( 9 )]
+[node name="parede_terra" parent="paredes6" instance=ExtResource( 19 )]
 position = Vector2( -27.833, -95.3401 )
 rotation = 0.349066
 collision_layer = 2049
 collision_mask = 2049
 
-[node name="parede_terra2" parent="paredes6" instance=ExtResource( 9 )]
+[node name="parede_terra2" parent="paredes6" instance=ExtResource( 19 )]
 position = Vector2( 2.37744, -251.364 )
 
-[node name="parede_terra5" parent="paredes6" instance=ExtResource( 9 )]
+[node name="parede_terra5" parent="paredes6" instance=ExtResource( 19 )]
 position = Vector2( -112.342, -391.715 )
 
 [node name="paredes5" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 6159.98, 72.7435 )
 
-[node name="parede_terra" parent="paredes5" instance=ExtResource( 9 )]
+[node name="parede_terra" parent="paredes5" instance=ExtResource( 19 )]
 position = Vector2( 115, -150.455 )
 
-[node name="parede_terra2" parent="paredes5" instance=ExtResource( 9 )]
+[node name="parede_terra2" parent="paredes5" instance=ExtResource( 19 )]
 position = Vector2( 435, -348.332 )
 
-[node name="parede_terra4" parent="paredes5" instance=ExtResource( 9 )]
+[node name="parede_terra4" parent="paredes5" instance=ExtResource( 19 )]
 position = Vector2( 435, -517.223 )
 
-[node name="parede_terra3" parent="paredes5" instance=ExtResource( 9 )]
+[node name="parede_terra3" parent="paredes5" instance=ExtResource( 19 )]
 position = Vector2( 115, -311.069 )
 
-[node name="parede_terra5" parent="paredes5" instance=ExtResource( 9 )]
+[node name="parede_terra5" parent="paredes5" instance=ExtResource( 19 )]
 position = Vector2( 115.242, -465.45 )
 
 [node name="paredes7" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 5769.76, 60.1558 )
 
-[node name="parede_terra" parent="paredes7" instance=ExtResource( 9 )]
+[node name="parede_terra" parent="paredes7" instance=ExtResource( 19 )]
 position = Vector2( 100, -178.681 )
 
-[node name="parede_terra2" parent="paredes7" instance=ExtResource( 9 )]
+[node name="parede_terra2" parent="paredes7" instance=ExtResource( 19 )]
 position = Vector2( 227, -292.175 )
 
-[node name="parede_terra4" parent="paredes7" instance=ExtResource( 9 )]
+[node name="parede_terra4" parent="paredes7" instance=ExtResource( 19 )]
 position = Vector2( 825.052, -670.97 )
 
-[node name="parede_terra3" parent="paredes7" instance=ExtResource( 9 )]
+[node name="parede_terra3" parent="paredes7" instance=ExtResource( 19 )]
 position = Vector2( 100, -340.069 )
 
-[node name="parede_terra5" parent="paredes7" instance=ExtResource( 9 )]
+[node name="parede_terra5" parent="paredes7" instance=ExtResource( 19 )]
 position = Vector2( 227, -451.043 )
 
-[node name="mata_urso" parent="." instance=ExtResource( 9 )]
-editor/display_folded = true
+[node name="mata_urso" parent="." instance=ExtResource( 19 )]
 position = Vector2( 4530.14, -102.251 )
 scale = Vector2( 1, 1.5 )
 
@@ -437,92 +427,92 @@ position = Vector2( -2.51758, -122.52 )
 shape = SubResource( 4 )
 
 [node name="paredes3" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 1208.89, -61.1064 )
 
-[node name="parede_terra" parent="paredes3" instance=ExtResource( 9 )]
+[node name="parede_terra" parent="paredes3" instance=ExtResource( 19 )]
 position = Vector2( 388.099, -68.5976 )
 rotation = -3.49066
 
-[node name="parede_terra3" parent="paredes3" instance=ExtResource( 9 )]
+[node name="parede_terra3" parent="paredes3" instance=ExtResource( 19 )]
 position = Vector2( 372.408, -111.342 )
 rotation = -3.49066
 
-[node name="parede_terra5" parent="paredes3" instance=ExtResource( 9 )]
+[node name="parede_terra5" parent="paredes3" instance=ExtResource( 19 )]
 position = Vector2( 794.871, -390.306 )
 rotation = -0.872665
 
-[node name="parede_terra2" parent="paredes3" instance=ExtResource( 9 )]
+[node name="parede_terra2" parent="paredes3" instance=ExtResource( 19 )]
 position = Vector2( 340.675, -197.267 )
 
-[node name="parede_terra4" parent="paredes3" instance=ExtResource( 9 )]
+[node name="parede_terra4" parent="paredes3" instance=ExtResource( 19 )]
 position = Vector2( 856.769, -265.24 )
 
 [node name="porta" type="StaticBody2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="porta"]
-position = Vector2( 6606.35, -118.027 )
+position = Vector2( 6608.6, -122.517 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="porta"]
-shape = SubResource( 5 )
+position = Vector2( 6599.62, -120.272 )
+scale = Vector2( 0.6, 0.6 )
+shape = SubResource( 15 )
 
 [node name="dolly_guarana" type="Sprite" parent="."]
 position = Vector2( 292.034, -219.025 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
-[node name="dollynho" parent="." instance=ExtResource( 12 )]
+[node name="dollynho" parent="." instance=ExtResource( 9 )]
 position = Vector2( 90, -80 )
 collision_layer = 1031
 collision_mask = 1031
 
-[node name="gol" parent="." instance=ExtResource( 13 )]
+[node name="gol" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1565.48, -115.105 )
 scale = Vector2( 1, 1.7 )
 collision_layer = 16
 collision_mask = 16
 
-[node name="bola" parent="." instance=ExtResource( 14 )]
+[node name="bola" parent="." instance=ExtResource( 20 )]
 position = Vector2( 845, -140 )
 collision_layer = 17
 collision_mask = 17
 
 [node name="melhor" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 15 )
+stream = ExtResource( 21 )
 
 [node name="flamengo" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 16 )
-
-[node name="musica" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 
-[node name="esporte" type="AudioStreamPlayer" parent="."]
+[node name="musica" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
 
-[node name="porco_espinho" parent="." instance=ExtResource( 19 )]
+[node name="esporte" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+
+[node name="porco_espinho" parent="." instance=ExtResource( 23 )]
 position = Vector2( 1758.04, -386.68 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="urso" parent="." instance=ExtResource( 20 )]
+[node name="urso" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2345, -100 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 2332.52, -112.736 )
-texture = ExtResource( 21 )
+texture = ExtResource( 25 )
 
 [node name="Sprite3" type="Sprite" parent="."]
 position = Vector2( 2386.19, -112.736 )
-texture = ExtResource( 21 )
+texture = ExtResource( 25 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 2360.28, -112.736 )
-texture = ExtResource( 21 )
+texture = ExtResource( 25 )
 
 [node name="timer_urso" type="Timer" parent="."]
 
 [node name="ativa_urso" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 2477.75, -69.3579 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ativa_urso"]
@@ -543,12 +533,11 @@ shape = SubResource( 7 )
 position = Vector2( -10.8466, -58.7519 )
 shape = SubResource( 7 )
 
-[node name="sol" parent="." instance=ExtResource( 22 )]
-editor/display_folded = true
+[node name="sol" parent="." instance=ExtResource( 31 )]
 position = Vector2( 4948.66, -488.215 )
 
 [node name="audio_sol" type="AudioStreamPlayer" parent="sol"]
-stream = ExtResource( 23 )
+stream = ExtResource( 32 )
 
 [node name="guaranas" type="CanvasLayer" parent="."]
 layer = 5
@@ -566,7 +555,7 @@ margin_left = -127.0
 margin_top = 52.0
 margin_right = -44.0
 margin_bottom = 125.0
-texture = ExtResource( 24 )
+texture = ExtResource( 11 )
 
 [node name="lbl" type="Label" parent="guaranas/Control"]
 anchor_left = 1.0
@@ -575,7 +564,7 @@ margin_left = -235.326
 margin_top = 57.5918
 margin_right = -124.326
 margin_bottom = 145.592
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = ExtResource( 1 )
 text = "0/8"
 align = 2
 valign = 1
@@ -606,57 +595,56 @@ modulate = Color( 0.239216, 1, 0.266667, 1 )
 material = SubResource( 13 )
 position = Vector2( 7626.89, -156.377 )
 scale = Vector2( 0.01, 0.01 )
-texture = ExtResource( 26 )
-script = ExtResource( 27 )
+texture = ExtResource( 29 )
+script = ExtResource( 33 )
 
 [node name="baloes" type="Node2D" parent="."]
 position = Vector2( 7585.74, -140.852 )
-script = ExtResource( 28 )
+script = ExtResource( 24 )
 
 [node name="balao1" type="Sprite" parent="baloes"]
 visible = false
 position = Vector2( 112.435, -21.97 )
-texture = ExtResource( 29 )
+texture = ExtResource( 36 )
 
 [node name="balao2" type="Sprite" parent="baloes"]
 visible = false
 position = Vector2( -100, -23.262 )
-texture = ExtResource( 30 )
+texture = ExtResource( 26 )
 
 [node name="balao3" type="Sprite" parent="baloes"]
 visible = false
 position = Vector2( 113.727, -16.8006 )
-texture = ExtResource( 31 )
+texture = ExtResource( 34 )
 
 [node name="balao4" type="Sprite" parent="baloes"]
 visible = false
 position = Vector2( -100, -20.678 )
-texture = ExtResource( 32 )
+texture = ExtResource( 35 )
 
 [node name="balao5" type="Sprite" parent="baloes"]
 visible = false
 position = Vector2( 112.435, -18.0929 )
-texture = ExtResource( 33 )
+texture = ExtResource( 28 )
 
 [node name="balao6" type="Sprite" parent="baloes"]
 visible = false
 position = Vector2( 112.435, -16.8006 )
-texture = ExtResource( 34 )
+texture = ExtResource( 27 )
 
 [node name="dollynho2" type="KinematicBody2D" parent="."]
 position = Vector2( 7656.98, -194.927 )
-script = ExtResource( 35 )
+script = ExtResource( 30 )
 
 [node name="Sprite" type="Sprite" parent="dollynho2"]
 position = Vector2( -27.8553, 35.4763 )
-texture = ExtResource( 36 )
+texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dollynho2"]
 position = Vector2( -27.8672, 46.2358 )
 shape = SubResource( 14 )
 
 [node name="enter" type="Sprite" parent="."]
-visible = false
 position = Vector2( 7842.88, -77.5456 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 37 )

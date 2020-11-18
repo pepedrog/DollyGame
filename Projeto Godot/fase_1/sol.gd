@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var fogo = preload("res://bola_fogo.tscn")
+var fogo = preload("res://fase_1/bola_fogo.tscn")
 
 func liga():
 	$timer_sol.start()
